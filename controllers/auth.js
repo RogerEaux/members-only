@@ -1,3 +1,4 @@
+import passport from 'passport';
 import { createUser } from '../models/userModel.js';
 import bcrypt from 'bcrypt';
 
@@ -23,4 +24,20 @@ export async function postSignUpHandler(req, res, next) {
 
     res.send(createdUser);
   }
+}
+
+export function getLogInHandler(req, res, next) {
+  res.render('login');
+}
+
+export function postLogInHandler(req, res, next) {
+  passport.authenticate('local', (err, user, info) => {
+    if (err) return next(err);
+    if (!user) return res.render('login', { error: info.message });
+
+    req.logIn(user, (err) => {
+      if (err) return next(err);
+      return res.redirect('/');
+    });
+  })(req, res, next);
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in</title>
+  </head>
+  <body>
+    <form action="/auth/login" method="POST">
+      <div>
+        <label for="username">Username</label>
+        <input
+          id="username"
+          name="username"
+          placeholder="Username"
+          type="text"
+        />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Password"
+        />
+      </div>
+      <% if (locals.error) { %>
+      <p><%- error %></p>
+      <% } %>
+      <button type="submit">Log in</button>
+    </form>
+  </body>
+</html>
+<!DOCTYPE html>

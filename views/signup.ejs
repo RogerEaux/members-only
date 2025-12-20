@@ -17,8 +17,8 @@
           minlength="4"
           value="<%- values.username %>"
         />
-        <% if (errors.username) { %>
-        <p><%- errors.username %></p>
+        <% if (errors?.username) { %>
+        <p><%- errors?.username.msg %></p>
         <% } %>
       </div>
       <div>
@@ -30,8 +30,8 @@
           type="email"
           value="<%- values.email %>"
         />
-        <% if (errors.email) { %>
-        <p><%- errors.email %></p>
+        <% if (errors?.email) { %>
+        <p><%- errors?.email.msg %></p>
         <% } %>
       </div>
       <div>
@@ -44,8 +44,8 @@
           minlength="8"
           value="<%- values.password %>"
         />
-        <% if (errors.password) { %>
-        <p><%- errors.password %></p>
+        <% if (errors?.password) { %>
+        <p><%- errors?.password.msg %></p>
         <% } %>
       </div>
       <div>
@@ -58,8 +58,8 @@
           minlength="8"
           value="<%- values['confirm-password'] %>"
         />
-        <% if (errors['confirm-password']) { %>
-        <p><%- errors['confirm-password'] %></p>
+        <% if (errors?.['confirm-password']) { %>
+        <p><%- errors?.['confirm-password'].msg %></p>
         <% } %>
       </div>
       <button type="submit">Sign up</button>
